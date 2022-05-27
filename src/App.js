@@ -1,7 +1,8 @@
 import React from 'react';
+import './index.css';
 
 function App() {
-	return <div className="App">1st commit</div>;
+	return <div className="App">chesstimer</div>;
 }
 
 export default App;
