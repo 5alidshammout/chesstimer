@@ -1,0 +1,30 @@
+$onyx: #3c3c3cff;
+$gainsboro: #dadada;
+$mikado-yellow: #ffc800;
+$yellow-orange-color-wheel: #ff9100;
+$pumpkin: #ff6f00;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Fredoka";
+}
+
+.playerContainer {
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.player {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: $onyx;
+	border: 1px solid $mikado-yellow;
+	color: $yellow-orange-color-wheel;
+}
