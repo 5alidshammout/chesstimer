@@ -19,8 +19,9 @@
   align-items: center;
   height: 100vh;
   background: #3c3c3c;
-  border: 1px solid #ffc800;
-  color: #ff9100;
+  transition: color 0.25s;
+  transition: background-color 0.25s;
+  transition-delay: 0;
 }
 
 /*# sourceMappingURL=index.css.map */

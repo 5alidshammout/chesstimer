@@ -1,4 +1,4 @@
-$onyx: #3c3c3cff;
+$onyx: #3c3c3c;
 $gainsboro: #dadada;
 $mikado-yellow: #ffc800;
 $yellow-orange-color-wheel: #ff9100;
@@ -8,7 +8,7 @@ $pumpkin: #ff6f00;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Fredoka";
+	font-family: 'Fredoka';
 }
 
 .playerContainer {
@@ -25,6 +25,7 @@ $pumpkin: #ff6f00;
 	align-items: center;
 	height: 100vh;
 	background: $onyx;
-	border: 1px solid $mikado-yellow;
-	color: $yellow-orange-color-wheel;
+	transition: color 0.25s;
+	transition: background-color 0.25s;
+	transition-delay: 0;
 }

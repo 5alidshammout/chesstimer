@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import './styles/index.css';
-import GameStateProvider from './contexts/gameState';
+import GameStateProvider, { gameState } from './contexts/gameState';
 import Player from './components/player';
 
 function App() {
+	const handleKeyUp = useCallback(e => console.log(gameState.toggleCP), []);
+
+	useEffect(
+		() => document.addEventListener('keyup', handleKeyUp),
+		[handleKeyUp]
+	);
+
 	return (
 		<GameStateProvider>
-			<div className="playerContainer">
-				<Player name="5alidshammout" />
-				<Player name="opponent" />
+			<div className="playerContainer" onKeyUp={gameState.toggleCP}>
+				<Player name="5alidshammout" i="a" />
+				<Player name="opponent" i="b" />
 			</div>
 		</GameStateProvider>
 	);
