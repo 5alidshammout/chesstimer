@@ -12,12 +12,13 @@ class GameStateProvider extends Component {
 		},
 	};
 	toggleCP = e => {
-		alert(e);
-		// this.state.keys[e.code] !== null &&
-		// 	this.setState({
-		// 		CP: this.state.CP === this.state.keys[e.code],
-		// 		started: true,
-		// 	});
+		console.log(e.code, this.state.keys[e.code]);
+		this.state.keys[e.code] !== null &&
+			this.setState({
+				CP: this.state.keys[e.code] ?? this.state.CP,
+				started: true,
+			});
+		console.log(this.state);
 	};
 	render() {
 		return (

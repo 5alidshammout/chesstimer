@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useContext } from 'react';
 import './styles/index.css';
-import GameStateProvider, { gameState } from './contexts/gameState';
+import { gameState } from './contexts/gameState';
 import Player from './components/player';
 
 function App() {
-	const handleKeyUp = useCallback(e => console.log(gameState.toggleCP), []);
+	const { toggleCP } = useContext(gameState);
+	const handleKeyUp = useCallback(e => toggleCP(e), [toggleCP]);
 
 	useEffect(
 		() => document.addEventListener('keyup', handleKeyUp),
@@ -12,12 +13,10 @@ function App() {
 	);
 
 	return (
-		<GameStateProvider>
-			<div className="playerContainer" onKeyUp={gameState.toggleCP}>
-				<Player name="5alidshammout" i="a" />
-				<Player name="opponent" i="b" />
-			</div>
-		</GameStateProvider>
+		<div className="playerContainer">
+			<Player name="5alidshammout" i="a" />
+			<Player name="opponent" i="b" />
+		</div>
 	);
 }
 
