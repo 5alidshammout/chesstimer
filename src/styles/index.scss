@@ -1,14 +1,17 @@
-$onyx: #3c3c3c;
-$gainsboro: #dadada;
-$mikado-yellow: #ffc800;
-$yellow-orange-color-wheel: #ff9100;
-$pumpkin: #ff6f00;
+$black: #000;
+$jet: #333;
+$blue-crayola: #47f;
+$vivid-sky-blue: #5cf;
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Fredoka';
+}
+
+body {
+	background: $blue-crayola;
 }
 
 .playerContainer {
@@ -23,9 +26,21 @@ $pumpkin: #ff6f00;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-	background: $onyx;
+	height: calc(100vh - 20px);
+	background: $jet;
 	transition: color 0.25s;
 	transition: background-color 0.25s;
-	transition-delay: 0;
+	margin: 10px 10px 10px 10px;
+	border-radius: 20px;
+}
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $black;
+	opacity: 0.8;
+	transition: opacity 0.25s;
+	user-select: none;
 }

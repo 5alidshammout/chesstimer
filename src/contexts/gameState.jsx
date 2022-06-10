@@ -11,19 +11,36 @@ class GameStateProvider extends Component {
 			KeyM: 'b',
 		},
 	};
-	toggleCP = e => {
-		let player = this.state.keys[e.code];
-		player &&
-			this.setState({
-				CP: player,
-				started: true,
-				running: player,
-			});
+	handleKey = e => {
+		let key = e.code;
+		let player = this.state.keys[key];
+
+		player && this.toggleCP(player);
+
+		key === 'Space' && this.toggleRunning();
 	};
+
+	toggleRunning = () => {
+		if (this.state.running) {
+			this.setState({
+				running: null,
+			});
+		} else if (this.state.started) {
+			this.setState({
+				running: this.state.CP,
+			});
+		}
+	};
+	toggleCP = player =>
+		this.setState({
+			CP: player,
+			started: true,
+			running: player,
+		});
 
 	render() {
 		return (
-			<gameState.Provider value={{ ...this.state, toggleCP: this.toggleCP }}>
+			<gameState.Provider value={{ ...this.state, handleKey: this.handleKey }}>
 				{this.props.children}
 			</gameState.Provider>
 		);

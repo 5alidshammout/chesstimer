@@ -5,6 +5,10 @@
   font-family: "Fredoka";
 }
 
+body {
+  background: #47f;
+}
+
 .playerContainer {
   height: 100vh;
   width: 100vw;
@@ -17,11 +21,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: #3c3c3c;
+  height: calc(100vh - 20px);
+  background: #333;
   transition: color 0.25s;
   transition: background-color 0.25s;
-  transition-delay: 0;
+  margin: 10px 10px 10px 10px;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  transition: opacity 0.25s;
+  user-select: none;
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import msConvertor from '../helpers/msConvertor';
 import { gameState } from '../contexts/gameState';
+import pallete from '../helpers/pallete';
 
 class player extends Component {
 	static contextType = gameState;
@@ -12,8 +13,8 @@ class player extends Component {
 				className="player"
 				style={
 					started && CP === this.props.i
-						? { backgroundColor: '#ffc800', color: '#3c3c3c' }
-						: { backgroundColor: '#3c3c3c', color: '#ffc800' }
+						? { backgroundColor: pallete.vividSkyBlue, color: pallete.jet }
+						: { backgroundColor: pallete.jet, color: pallete.vividSkyBlue }
 				}
 			>
 				<h1>{this.props.name}</h1>
