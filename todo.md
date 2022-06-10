@@ -1,7 +1,7 @@
 # TODO:
 
-- make ability to change name/keys
-- timer goes down
+- ~~timer goes down~~
 - pause/start
+- make ability to change name/keys
 - make a nice ui
 - keep drinking water

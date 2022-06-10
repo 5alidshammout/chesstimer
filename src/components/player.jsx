@@ -21,6 +21,25 @@ class player extends Component {
 			</div>
 		);
 	}
+	componentDidUpdate() {
+		if (!this.timer && this.context.running === this.props.i) {
+			this.startTimer();
+		} else if (this.timer && this.context.running !== this.props.i) {
+			this.stopTimer();
+		}
+	}
+	startTimer() {
+		if (!this.timer) {
+			this.timer = setInterval(
+				() => this.setState({ timer: this.state.timer - 4 }),
+				4
+			);
+		}
+	}
+	stopTimer() {
+		clearInterval(this.timer);
+		this.timer = null;
+	}
 }
 
 export default player;

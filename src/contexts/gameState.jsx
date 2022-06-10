@@ -4,7 +4,7 @@ let gameState = createContext();
 class GameStateProvider extends Component {
 	state = {
 		CP: null,
-		running: false,
+		running: null,
 		started: false,
 		keys: {
 			KeyC: 'a',
@@ -12,14 +12,15 @@ class GameStateProvider extends Component {
 		},
 	};
 	toggleCP = e => {
-		console.log(e.code, this.state.keys[e.code]);
-		this.state.keys[e.code] !== null &&
+		let player = this.state.keys[e.code];
+		player &&
 			this.setState({
-				CP: this.state.keys[e.code] ?? this.state.CP,
+				CP: player,
 				started: true,
+				running: player,
 			});
-		console.log(this.state);
 	};
+
 	render() {
 		return (
 			<gameState.Provider value={{ ...this.state, toggleCP: this.toggleCP }}>
