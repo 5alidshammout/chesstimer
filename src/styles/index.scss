@@ -12,11 +12,12 @@ $vivid-sky-blue: #5cf;
 
 body {
 	background: $blue-crayola;
+	padding: 0 5px 0 5px;
 }
 
 .playerContainer {
 	height: 100vh;
-	width: 100vw;
+	width: calc(100vw - 10px);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
@@ -30,7 +31,7 @@ body {
 	background: $jet;
 	transition: color 0.25s;
 	transition: background-color 0.25s;
-	margin: 10px 10px 10px 10px;
+	margin: 10px 5px 10px 5px;
 	border-radius: 20px;
 }
 .overlay {
