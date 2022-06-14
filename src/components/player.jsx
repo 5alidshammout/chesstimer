@@ -17,7 +17,7 @@ class player extends Component {
 						: { backgroundColor: pallete.jet, color: pallete.vividSkyBlue }
 				}
 			>
-				<h1>{this.props.name}</h1>
+				<h1>{this.context.names[this.props.i]}</h1>
 				<h1>{msConvertor(this.state.timer)}</h1>
 			</div>
 		);
