@@ -41,6 +41,11 @@ class GameStateProvider extends Component {
 
 	toggleNKO = () => {
 		this.setState({ isOpenNKO: !this.state.isOpenNKO });
+		if (this.state.running) {
+			this.setState({
+				running: null,
+			});
+		}
 	};
 
 	toggleRunning = () => {
