@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { gameState } from '../contexts/gameState';
 
 class Burger extends Component {
-   static contextType = gameState;
+	static contextType = gameState;
 	state = {
 		isOpen: false,
 	};
@@ -10,18 +10,25 @@ class Burger extends Component {
 		return (
 			<div
 				className={(this.state.isOpen ? 'activeBurger ' : '') + 'burger'}
-				onClick={e => this.toggle(e)}
+				onClick={_ => this.toggleC()}
+				onKeyUp={e => this.toggleK(e)}
+				tabIndex="0"
 			>
-				<div className="dash"></div>
 				<div className="dash"></div>
 				<div className="dash"></div>
 				<div className="dash"></div>
 			</div>
 		);
 	}
-	toggle() {
+	toggleC() {
 		this.setState({ isOpen: !this.state.isOpen });
-      this.context.toggleNKO();
+		this.context.toggleNKO();
+	}
+	toggleK(e) {
+		if (e.code === 'Enter' || e.code === 'Space') {
+			this.setState({ isOpen: !this.state.isOpen });
+			this.context.toggleNKO();
+		}
 	}
 }
 

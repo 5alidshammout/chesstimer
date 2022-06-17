@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { gameState } from '../contexts/gameState';
-
+import KeyChanger from './keyChanger';
 class NKOverlay extends Component {
 	static contextType = gameState;
 	render() {
@@ -13,6 +13,7 @@ class NKOverlay extends Component {
 						id="N-a"
 						onChange={e => this.context.updateNK('a', e)}
 					/>
+					<KeyChanger i="a"></KeyChanger>
 				</div>
 				<div className="NK-b">
 					<input
@@ -21,6 +22,7 @@ class NKOverlay extends Component {
 						id="N-b"
 						onChange={e => this.context.updateNK('b', e)}
 					/>
+					<KeyChanger i="b"></KeyChanger>
 				</div>
 			</div>
 		);

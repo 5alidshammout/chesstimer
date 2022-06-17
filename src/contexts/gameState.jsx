@@ -8,14 +8,15 @@ class GameStateProvider extends Component {
 		started: false,
 		isOpenNKO: false,
 		keys: {
-			a: 'KeyV',
-			b: 'KeyN',
+			a: 'KeyA',
+			b: 'KeyB',
 		},
 		names: {
 			a: 'a',
 			b: 'b',
 		},
 	};
+
 	handleKey = e => {
 		if (this.state.isOpenNKO) return;
 		let key = e.code;
@@ -33,13 +34,16 @@ class GameStateProvider extends Component {
 	};
 
 	updateNK = (player, e) => {
-		let value = e.target.value;
+		let v = e.target.value;
 		let names = this.state.names;
-		names[player] = value;
+		names[player] = v === '' ? player : v;
 		this.setState({ names });
 	};
 
 	toggleNKO = () => {
+		if (this.state.isOpenNKO && 'activeElement' in document) {
+			document.activeElement.blur();
+		}
 		this.setState({ isOpenNKO: !this.state.isOpenNKO });
 		if (this.state.running) {
 			this.setState({
@@ -67,6 +71,14 @@ class GameStateProvider extends Component {
 			running: player,
 		});
 
+	setKeys = (key, player) =>
+		this.setState({
+			keys: {
+				...this.state.keys,
+				[player]: key,
+			},
+		});
+
 	render() {
 		return (
 			<gameState.Provider
@@ -75,6 +87,7 @@ class GameStateProvider extends Component {
 					handleKey: this.handleKey,
 					updateNK: this.updateNK,
 					toggleNKO: this.toggleNKO,
+					setKeys: this.setKeys,
 				}}
 			>
 				{this.props.children}
