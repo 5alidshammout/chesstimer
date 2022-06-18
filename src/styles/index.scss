@@ -12,14 +12,23 @@ $vivid-sky-blue: #5cf;
 
 body {
 	background: $blue-crayola;
-	padding: 0 5px 0 5px;
 }
 
 .playerContainer {
 	height: 100vh;
-	width: calc(100vw - 10px);
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	width: 100vw;
+	display: flex;
+	padding: 0 5px 0 5px;
+}
+
+.PCcolumn {
+	padding: 5px 0 5px 0;
+	flex-direction: column;
+	.player {
+		width: calc(100vw - 20px);
+		height: calc(50vh - 10px);
+		margin: 5px 10px 5px 10px;
+	}
 }
 
 .player {
@@ -27,10 +36,10 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 50vw;
 	height: calc(100vh - 20px);
 	background: $jet;
-	transition: color 0.25s;
-	transition: background-color 0.25s;
+	transition: background-color 0.25s, color 0.25s;
 	margin: 10px 5px 10px 5px;
 	border-radius: 20px;
 }
@@ -51,6 +60,8 @@ body {
 .NKO {
 	background: $jet;
 	position: absolute;
+	display: flex;
+	flex-direction: row;
 	top: 0;
 	left: 0;
 	height: 100vh;
@@ -115,6 +126,18 @@ input {
 	pointer-events: all;
 }
 
+.NKOcolumn {
+	flex-direction: column;
+	.NK-a,
+	.NK-b {
+		width: 100vw;
+		height: 50vh;
+		input {
+			width: 80vw;
+		}
+	}
+}
+
 .burger {
 	position: absolute;
 	top: 3vw;
@@ -132,25 +155,50 @@ input {
 		outline: none;
 		transform: scale(1.2);
 	}
+	.dash {
+		width: 3.6vw;
+		height: 0.4vw;
+		background: $blue-crayola;
+		border: 0.1vw solid $vivid-sky-blue;
+		border-radius: 100vw;
+		transition: transform 0.25s;
+	}
 }
 
-.burger .dash {
-	width: 3.6vw;
-	height: 0.4vw;
-	background: $blue-crayola;
-	border: 0.1vw solid $vivid-sky-blue;
-	border-radius: 100vw;
-	transition: 0.25s;
+.activeBurger {
+	.dash:nth-of-type(1) {
+		transform: translateY(1.6vw) rotate(-315deg);
+	}
+
+	.dash:nth-of-type(2) {
+		opacity: 0;
+	}
+
+	.dash:nth-of-type(3) {
+		transform: translateY(-1.6vw) rotate(315deg);
+	}
 }
 
-.activeBurger .dash:nth-of-type(1) {
-	transform: translateY(1.6vw) rotate(-315deg);
+.Bcolumn {
+	top: 3vh;
+	right: 3vh;
+	width: 4.4vh;
+	height: 4.4vh;
+	padding: 0.4vh;
+	.dash {
+		width: 3.6vh;
+		height: 0.4vh;
+		border: 0.1vh solid $vivid-sky-blue;
+		border-radius: 100vh;
+	}
 }
 
-.activeBurger .dash:nth-of-type(2) {
-	opacity: 0;
-}
+.activeBurger.Bcolumn {
+	.dash:nth-of-type(1) {
+		transform: translateY(1.6vh) rotate(-315deg) !important;
+	}
 
-.activeBurger .dash:nth-of-type(3) {
-	transform: translateY(-1.6vw) rotate(315deg);
+	.dash:nth-of-type(3) {
+		transform: translateY(-1.6vh) rotate(315deg) !important;
+	}
 }

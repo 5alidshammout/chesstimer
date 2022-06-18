@@ -5,7 +5,11 @@ class NKOverlay extends Component {
 	static contextType = gameState;
 	render() {
 		return (
-			<div className={(this.context.isOpenNKO ? 'NKOActive ' : '') + 'NKO'}>
+			<div
+				className={
+					(this.context.isOpenNKO ? 'NKOActive ' : '') + 'NKO ' + this.props.cn
+				}
+			>
 				<div className="NK-a">
 					<input
 						type="text"

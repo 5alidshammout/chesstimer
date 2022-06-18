@@ -4,12 +4,14 @@ import { gameState } from '../contexts/gameState';
 class Burger extends Component {
 	static contextType = gameState;
 	state = {
-		isOpen: false,
+		isOpen: this.context.isOpenNKO,
 	};
 	render() {
 		return (
 			<div
-				className={(this.state.isOpen ? 'activeBurger ' : '') + 'burger'}
+				className={
+					(this.state.isOpen ? 'activeBurger ' : '') + 'burger ' + this.props.cn
+				}
 				onClick={_ => this.toggleC()}
 				onKeyUp={e => this.toggleK(e)}
 				tabIndex="0"

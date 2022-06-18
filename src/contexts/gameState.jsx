@@ -7,6 +7,7 @@ class GameStateProvider extends Component {
 		running: null,
 		started: false,
 		isOpenNKO: false,
+		flexDirection: 'row',
 		keys: {
 			a: 'KeyA',
 			b: 'KeyB',
@@ -31,6 +32,13 @@ class GameStateProvider extends Component {
 		player && this.toggleCP(player);
 
 		key === 'Space' && this.toggleRunning();
+	};
+
+	handleResize = () => {
+		this.setState({
+			flexDirection: window.innerHeight > window.innerWidth ? 'column' : 'row',
+		});
+		console.log(this.state.flexDirection);
 	};
 
 	updateNK = (player, e) => {
@@ -85,6 +93,7 @@ class GameStateProvider extends Component {
 				value={{
 					...this.state,
 					handleKey: this.handleKey,
+					handleResize: this.handleResize,
 					updateNK: this.updateNK,
 					toggleNKO: this.toggleNKO,
 					setKeys: this.setKeys,

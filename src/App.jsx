@@ -7,19 +7,27 @@ import NKOverlay from './components/nameKeyOverlay';
 import Burger from './components/burger';
 
 function App() {
-	const { handleKey } = useContext(gameState);
+	const { handleKey, handleResize, flexDirection } = useContext(gameState);
 
 	useEffect(() => document.addEventListener('keyup', handleKey), [handleKey]);
+	useEffect(
+		() => window.addEventListener('resize', handleResize),
+		[handleResize]
+	);
+	useEffect(
+		() => window.addEventListener('load', handleResize),
+		[handleResize]
+	);
 
 	return (
 		<div className="App">
-			<div className="playerContainer">
+			<div className={'PC' + flexDirection + ' playerContainer'}>
 				<Player name="a" i="a" />
 				<Player name="b" i="b" />
 			</div>
-			<Burger></Burger>
+			<Burger cn={'B' + flexDirection}></Burger>
 			<Overlay></Overlay>
-			<NKOverlay></NKOverlay>
+			<NKOverlay cn={'NKO' + flexDirection}></NKOverlay>
 		</div>
 	);
 }
