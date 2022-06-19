@@ -16,6 +16,10 @@ class player extends Component {
 						? { backgroundColor: pallete.vividSkyBlue, color: pallete.jet }
 						: { backgroundColor: pallete.jet, color: pallete.vividSkyBlue }
 				}
+				onClick={_ => {
+					this.context.toggleCP(this.props.i);
+					this.context.setState({ running: this.props.i });
+				}}
 			>
 				<h1>{this.context.names[this.props.i]}</h1>
 				<h1>{msConvertor(this.state.timer)}</h1>

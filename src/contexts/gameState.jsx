@@ -97,6 +97,7 @@ class GameStateProvider extends Component {
 					updateNK: this.updateNK,
 					toggleNKO: this.toggleNKO,
 					setKeys: this.setKeys,
+					toggleCP: this.toggleCP,
 				}}
 			>
 				{this.props.children}
