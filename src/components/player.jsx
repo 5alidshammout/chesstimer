@@ -18,7 +18,7 @@ class player extends Component {
 				}
 				onClick={_ => {
 					this.context.toggleCP(this.props.i);
-					this.context.setState({ running: this.props.i });
+					this.context.setCP(this.props.i);
 				}}
 			>
 				<h1>{this.context.names[this.props.i]}</h1>

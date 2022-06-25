@@ -38,7 +38,6 @@ class GameStateProvider extends Component {
 		this.setState({
 			flexDirection: window.innerHeight > window.innerWidth ? 'column' : 'row',
 		});
-		console.log(this.state.flexDirection);
 	};
 
 	updateNK = (player, e) => {
@@ -79,6 +78,13 @@ class GameStateProvider extends Component {
 			running: player,
 		});
 
+	setCP = player => {
+		this.setState({
+			running: player,
+			CP: player,
+		});
+	};
+
 	setKeys = (key, player) =>
 		this.setState({
 			keys: {
@@ -98,6 +104,8 @@ class GameStateProvider extends Component {
 					toggleNKO: this.toggleNKO,
 					setKeys: this.setKeys,
 					toggleCP: this.toggleCP,
+					toggleRunning: this.toggleRunning,
+					setCP: this.setCP,
 				}}
 			>
 				{this.props.children}

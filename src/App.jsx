@@ -5,6 +5,7 @@ import Player from './components/player';
 import Overlay from './components/overlay';
 import NKOverlay from './components/nameKeyOverlay';
 import Burger from './components/burger';
+import PauseBtn from './components/pauseBtn';
 
 function App() {
 	const { handleKey, handleResize, flexDirection } = useContext(gameState);
@@ -27,6 +28,7 @@ function App() {
 			</div>
 			<Burger cn={'B' + flexDirection}></Burger>
 			<Overlay></Overlay>
+			<PauseBtn />
 			<NKOverlay cn={'NKO' + flexDirection}></NKOverlay>
 		</div>
 	);

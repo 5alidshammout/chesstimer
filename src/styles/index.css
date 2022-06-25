@@ -190,4 +190,27 @@ input:focus {
   transform: translateY(-1.6vh) rotate(315deg) !important;
 }
 
+.pause-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7vw;
+  height: 7vw;
+  padding: 1vw;
+  background: #333;
+  border-radius: 1vw;
+  box-shadow: 0 5px 20px #000;
+}
+.pause-btn svg {
+  fill: #47f;
+}
+
+.pb-column {
+  width: 7vh;
+  height: 7vh;
+  padding: 1vh;
+  border-radius: 1vh;
+}
+
 /*# sourceMappingURL=index.css.map */
