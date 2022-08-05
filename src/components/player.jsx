@@ -5,7 +5,7 @@ import pallete from '../helpers/pallete';
 
 class player extends Component {
 	static contextType = gameState;
-	state = { timer: 5 * 60000 };
+	state = { timer: 10 * 60000 };
 	render() {
 		const { CP, started } = this.context;
 		return (
@@ -17,8 +17,7 @@ class player extends Component {
 						: { backgroundColor: pallete.jet, color: pallete.vividSkyBlue }
 				}
 				onClick={_ => {
-					this.context.toggleCP(this.props.i);
-					this.context.setCP(this.props.i);
+					this.context.setCP(this.props.i === 'a' ? 'b' : 'a');
 				}}
 			>
 				<h1>{this.context.names[this.props.i]}</h1>

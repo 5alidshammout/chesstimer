@@ -25,11 +25,11 @@ class GameStateProvider extends Component {
 		let keys = this.state.keys;
 		for (let i in keys) {
 			if (keys[i] === key) {
-				player = i;
+				player = i === 'a' ? 'b' : 'a';
 			}
 		}
 
-		player && this.toggleCP(player);
+		player && this.setCP(player);
 
 		key === 'Space' && this.toggleRunning();
 	};
@@ -71,19 +71,12 @@ class GameStateProvider extends Component {
 		}
 	};
 
-	toggleCP = player =>
+	setCP = player =>
 		this.setState({
 			CP: player,
 			started: true,
 			running: player,
 		});
-
-	setCP = player => {
-		this.setState({
-			running: player,
-			CP: player,
-		});
-	};
 
 	setKeys = (key, player) =>
 		this.setState({
@@ -103,9 +96,8 @@ class GameStateProvider extends Component {
 					updateNK: this.updateNK,
 					toggleNKO: this.toggleNKO,
 					setKeys: this.setKeys,
-					toggleCP: this.toggleCP,
-					toggleRunning: this.toggleRunning,
 					setCP: this.setCP,
+					toggleRunning: this.toggleRunning,
 				}}
 			>
 				{this.props.children}
